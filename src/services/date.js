@@ -1,11 +1,14 @@
 //Function that will help us to get the min_date and max_date
-function dateLimitator() {
-    let longMonths = [1,3,5,7,8,10,12]
-    let shortMonths = [4,6,9,11]
+function dateLimitator(date) {
+    if(!date){
+        date = new Date()
+    }
     let min_date
     let max_date
-    let today = new Date()
-    const [month, day, year] = [today.getMonth(), today.getDate(), today.getFullYear()];
+    let longMonths = [1,3,5,7,8,10,12]
+    let shortMonths = [4,6,9,11]
+    let [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
+
     let max_month = month + 3
     
     if(month<10){

@@ -5,26 +5,41 @@ import './CalendarView.css'
 
 //Services 
 import { dateLimitator } from '../../services/date'
-import {getAllOffers,getCoach,getCompany,getEstablishment,getMetaActivity} from '../../services/requests'
+import { getAllOffers } from '../../services/requests'
 
-//Custom components
+//Components
 import OfferList from "../../components/OfferList/OfferList"
+import DatePicker from '../../components/DatePicker/DatePicker'
 
 export default function CalendarView() {
+    //States
     const [offers,setOffers] = useState([])
-    
+    const [offersToBeDisplayed, setOffersToBeDisplayed] = useState([])
+    const [selectedDate, setSelectedDate] = useState(new Date())
     //the dates that we will use as placeholder to filter the offers
-    const dates = dateLimitator()
-
+    const [datesLimits] = useState(dateLimitator())
+    
+    //All the use effects 
     //Get all the offers when the page is mounted
     useEffect(()=>{
-        const allOffers = getAllOffers(dates)
+        const allOffers = getAllOffers(datesLimits)
         setOffers(allOffers)
     },[])
 
+    //Filter the offers to get the ones that take place on the selected date
+    useEffect(()=>{
+        const filteredOffers = offers.filter(offer => offer.date_start === selectedDate)
+        setOffersToBeDisplayed(filteredOffers)
+    },[selectedDate])
+
+    //Function that will handle the selection of the date and change the selected date state
+    const handleDateSelection = (e) => {
+        setSelectedDate(e)
+    }
+
     return (
         <div>
-            <OfferList offers={offers}/>
+            <DatePicker pick={handleDateSelection}/>
         </div>
     )
 }
