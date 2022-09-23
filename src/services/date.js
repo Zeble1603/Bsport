@@ -5,9 +5,7 @@ function dateLimitator() {
     let min_date
     let max_date
     let today = new Date()
-    let year = 2019
-    let month = today.getMonth() + 1
-    let day = today.getDate()   
+    const [month, day, year] = [today.getMonth(), today.getDate(), today.getFullYear()];
     let max_month = month + 3
     
     if(month<10){
