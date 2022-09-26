@@ -8,69 +8,74 @@ axios.defaults.headers.common["Authorization"] =
     "Token f18688960a8942c83d238b04e88389ac126bf55c";
 
 //Usefull function to fetch the data asynchronously inside components
-async function fetchData(objectId,getFunction,setState) {
-    let foundElement
-    try{
-        foundElement = await getFunction(objectId)
-    }catch(error) {
+async function fetchData(objectId, getFunction, setState) {
+    let foundElement;
+    try {
+        foundElement = await getFunction(objectId);
+    } catch (error) {
         console.error(error);
     }
-    setState(foundElement)
+    setState(foundElement);
 }
 
 //Call the different endpoints
 //GET all the offers
 async function getAllOffers(date) {
-    let offers
-    try{
-        offers = await axios
-        .get(`${API_URL}/offer`, {
-            params: { company: 6, min_date: date, max_date: date },
-        })
-    }catch(error) {
+    let offers;
+    try {
+        offers = await axios.get(`${API_URL}/offer`, {
+        params: { company: 6, min_date: date, max_date: date },
+        });
+    } catch (error) {
         console.error(error);
     }
-    return offers.data
+    return offers.data;
 }
 
 //GET the meta-activity
-function getMetaActivity(metaId) {
-    axios
-        .get(`${API_URL}/meta-activity/${metaId}`)
-        .then((foundMetaActivity) => {
-            return foundMetaActivity.data;
-        })
-        .catch((err) => console.log(err));
+async function getMetaActivity(metaId) {
+    let metaActivity;
+    try {
+        metaActivity = await axios.get(`${API_URL}/meta-activity/${metaId}`);
+    } catch (error) {
+        console.error(error);
     }
+    return metaActivity.data;
+}
 
 //GET the company
-function getCompany(companyId) {
-    axios
-        .get(`${API_URL}/company/${companyId}`)
-        .then((foundCompany) => {
-            return foundCompany.data;
-        })
-        .catch((err) => console.log(err));
+async function getCompany(companyId) {
+    let company;
+    try {
+        company = await axios.get(`${API_URL}/company/${companyId}`);
+    } catch (error) {
+        console.error(error);
+    }
+    return company.data;
 }
 
 //GET the coach
-function getCoach(coachId) {
-    axios
-        .get(`${API_URL}/coach/${coachId}`)
-        .then((foundCoach) => {
-            return foundCoach.data;
-        })
-        .catch((err) => console.log(err));
+async function getCoach(coachId) {
+    let coach;
+    try {
+        coach = await axios.get(`${API_URL}/coach/${coachId}`);
+    } catch (error) {
+        console.error(error);
+    }
+    return coach.data;
 }
 
 //GET the establishment
-function getEstablishment(establishmentId) {
-    axios
-        .get(`${API_URL}/establishment/${establishmentId}`)
-        .then((foundEstablishment) => {
-            return foundEstablishment.data;
-        })
-        .catch((err) => console.log(err));
+async function getEstablishment(establishmentId) {
+    let establishment;
+    try {
+        establishment = await axios.get(
+        `${API_URL}/establishment/${establishmentId}`
+        );
+    } catch (error) {
+        console.error(error);
+    }
+    return establishment.data;
 }
 
 export {
