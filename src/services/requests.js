@@ -7,6 +7,7 @@ const API_URL = "https://api.staging.bsport.io/api/v1";
 axios.defaults.headers.common["Authorization"] =
     "Token f18688960a8942c83d238b04e88389ac126bf55c";
 
+
 //Usefull function to fetch the data asynchronously inside components
 async function fetchData(objectId, getFunction, setState) {
     let foundElement;
@@ -59,7 +60,7 @@ async function getCoach(coachId) {
     let coach;
     try {
         coach = await axios.get(`${API_URL}/coach/${coachId}`);
-    } catch (error) {
+    }catch (error) {
         console.error(error);
     }
     return coach.data;

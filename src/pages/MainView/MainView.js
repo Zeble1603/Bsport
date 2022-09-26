@@ -5,7 +5,7 @@ import './MainView.css'
 
 //Services 
 import { dateLimitator } from '../../services/date'
-import { getAllOffers } from '../../services/requests'
+import { fetchData,getAllOffers } from '../../services/requests'
 
 //Components
 import OfferList from "../../components/OfferList/OfferList"
@@ -27,7 +27,7 @@ export default function MainView() {
         }catch(error) {
             console.error(error);
         }
-        setOffers(allOffers.results)    
+        setOffers(allOffers.results) 
     }
 
     //Function that will handle the selection of the date and change the selected date state

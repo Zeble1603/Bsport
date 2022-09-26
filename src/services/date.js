@@ -16,5 +16,11 @@ function dateLimitator(date) {
     return limitDate
 }
 
+//Function to get the time of an offer
+function getOfferTime(dateAsString){
+    let dateObject = new Date(dateAsString)
+    return dateObject.toLocaleTimeString()
+}
 
-export {dateLimitator}
+
+export {dateLimitator,getOfferTime}
