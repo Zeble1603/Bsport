@@ -7,17 +7,30 @@ const API_URL = "https://api.staging.bsport.io/api/v1";
 axios.defaults.headers.common["Authorization"] =
     "Token f18688960a8942c83d238b04e88389ac126bf55c";
 
+//Usefull function to fetch the data asynchronously inside components
+async function fetchData(objectId,getFunction,setState) {
+    let foundElement
+    try{
+        foundElement = await getFunction(objectId)
+    }catch(error) {
+        console.error(error);
+    }
+    setState(foundElement)
+}
+
 //Call the different endpoints
 //GET all the offers
-function getAllOffers(dates) {
-    axios
-    .get(`${API_URL}/offer`, {
-        params: { company: 6, min_date: dates.min_date, max_date: dates.max_date },
-    })
-    .then((allOffers) => {
-        return allOffers.data;
-    })
-    .catch((err) => console.log(err));
+async function getAllOffers(date) {
+    let offers
+    try{
+        offers = await axios
+        .get(`${API_URL}/offer`, {
+            params: { company: 6, min_date: date, max_date: date },
+        })
+    }catch(error) {
+        console.error(error);
+    }
+    return offers.data
 }
 
 //GET the meta-activity
@@ -61,6 +74,7 @@ function getEstablishment(establishmentId) {
 }
 
 export {
+    fetchData,
     getAllOffers,
     getCoach,
     getCompany,

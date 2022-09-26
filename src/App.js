@@ -1,18 +1,18 @@
 import React from "react";
 import { Route,Routes } from "react-router-dom";
 
-//Custom components
+//Components
 import Layout from "./components/Layout/Layout";
 
-//Custom pages
-import CalendarView from "./pages/CalendarView/CalendarView"
+//Pages
+import MainView from "./pages/MainView/MainView";
 
 function App() {
   return (
     <div className="App">
       <Layout>
         <Routes>
-          <Route path="/" element={<CalendarView/>}/>
+          <Route path="/" element={<MainView/>}/>
         </Routes>
       </Layout>
     </div>

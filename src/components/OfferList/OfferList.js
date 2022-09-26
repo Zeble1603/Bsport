@@ -13,7 +13,7 @@ export default function OfferList(props) {
             {offers.map((offer) => {
             return (
                 <li key={offer.id}>
-                <OfferItem data={offer}/>
+                <OfferItem offer={offer}/>
                 </li>
             );
             })}
