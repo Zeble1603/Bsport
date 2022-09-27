@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 //Request functions
-import {fetchData,getCoach,getEstablishment,getMetaActivity,test} from '../../services/requests'
+import {fetchData,getCoach,getEstablishment,getMetaActivity} from '../../services/requests'
 
 //Date functions
 import {getOfferTime} from '../../services/date'
@@ -48,10 +48,9 @@ export default function OfferItem(props) {
     <div className='card'>
         <img className='coverImg' src={metaActivity.cover_main} alt={metaActivity.alt_cover_main}/>
         <div className='cardText'>
-            <div className='cardHeader'>
+            <div className='cardContainer'>
                 <p className='time'>{offerTime}</p>
-                <h3 className='offerName'>{metaActivity.name}</h3>
-                <p className='duration'>{offerData.duration_minute} mn</p>
+                <h3 className='offerName'>{metaActivity.name} . {offerData.duration_minute} mn</h3>
                 <p className='level'>Niveau: {offerData.level}</p>
             </div>
             <div className='cardBody'>
@@ -59,19 +58,16 @@ export default function OfferItem(props) {
                     <img className= 'coachAvatar' src={coach.user.photo} alt='Coach avatar'/>
                     <p className='coachName'>{coach.user.name}</p>
                 </div>
-                <p className='place'>{establishment.title} - {establishment.location.address}</p>
-            </div>
-            <div className='cardFooter'>
-                <div className='card_buttons'>
-                    <Link to={``}>
-                        <button className='card_button button_info'>
-                            INFO
-                        </button>
-                    </Link>
-                        <button className='card_button button_register'>
-                            REGISTER
-                        </button>
-                </div>
+                <p className='place'>{establishment.title}</p>
+            </div>  
+            <div className='card_buttons'>
+                    <button className='card_button button_info'>
+                        + INFO  
+                    </button>
+                
+                    <button className='card_button button_register'>
+                        S'INSCRIRE
+                    </button>
             </div>
         </div>
     </div>
