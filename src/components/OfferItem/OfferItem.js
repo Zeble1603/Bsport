@@ -2,6 +2,10 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+
+//Components
+import Modal from '../Modal/Modal'
+
 //Request functions
 import {fetchData,getCoach,getEstablishment,getMetaActivity} from '../../services/requests'
 
@@ -18,16 +22,18 @@ export default function OfferItem(props) {
     const fakeEstablishment = {'title':'Chez Wam','location':{'address':'abc'}}
 
     //States
-    const [offerData,setOfferData] = useState([])
+    //const [offerData,setOfferData] = useState([])
     const [coach,setCoach] = useState(fakeCoach)
     const [establishment,setEstablishment] = useState(fakeEstablishment)
     const [metaActivity,setMetaActivity] = useState([])
     const [offerTime,setOfferTime] = useState([])
+    const [isOpen, setIsOpen] = useState(false);
+
 
     //Fetch the data when the component is mounted
-    useEffect(()=>{
+    /*useEffect(()=>{
         setOfferData(offer)
-    },[])
+    },[])*/
 
     useEffect(()=>{
         //Fetch the coach data
@@ -38,7 +44,7 @@ export default function OfferItem(props) {
         fetchData(offer.meta_activity,getMetaActivity,setMetaActivity)
         //Convert date_start to isolate the time
         setOfferTime(getOfferTime(offer.date_start))
-    },[offerData])
+    },[])
 
     /*useEffect(()=>{
         setCoachUser(coach.user)
@@ -50,8 +56,8 @@ export default function OfferItem(props) {
         <div className='cardText'>
             <div className='cardContainer'>
                 <p className='time'>{offerTime}</p>
-                <h3 className='offerName'>{metaActivity.name} . {offerData.duration_minute} mn</h3>
-                <p className='level'>Niveau: {offerData.level}</p>
+                <h3 className='offerName'>{metaActivity.name} . {offer.duration_minute} mn</h3>
+                <p className='level'>Niveau: {offer.level}</p>
             </div>
             <div className='cardBody'>
                 <div className='coachItem'>
@@ -61,10 +67,10 @@ export default function OfferItem(props) {
                 <p className='place'>{establishment.title}</p>
             </div>  
             <div className='card_buttons'>
-                    <button className='card_button button_info'>
+                    <button className='card_button button_info' onClick={() => setIsOpen(true)}>
                         + INFO  
                     </button>
-                
+                    {isOpen && <Modal setIsOpen={setIsOpen} />}
                     <button className='card_button button_register'>
                         S'INSCRIRE
                     </button>
