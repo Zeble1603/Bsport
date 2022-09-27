@@ -6,8 +6,8 @@ export default function DatePicker(props) {
     const {pick} = props
 
     return (
-        <div>
-            <Calendar onChange={pick}/>
+        <div className='datePicker'>
+            <Calendar className='calendar' onChange={pick}/>
         </div>
     )
 }

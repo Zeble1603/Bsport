@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+.datePicker {
+    width: 560px;
+    padding-top: 15px;
+}
+
+.calendar{
+
+    border: 0px !important;
+    width: 100% !important;
+    line-height: 6em !important;
+    font-family: 'Roboto', sans-serif !important;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar button{
+    font-family: 'Roboto', sans-serif !important;
+    font-size: larger;
+    color: #455a64 !important;
+    height: 75px;
+}
+
+.react-calendar__navigation{
+    height:auto !important
+}
+
+.react-calendar__tile--now {
+    background: #d1c4e9 !important;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+background: #ede7f6 !important;
+}
+
+.react-calendar__tile--hasActive {
+    background: #76baff;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+    background: #a9d4ff;
+}
+
+.react-calendar__tile--active {
+    background: #b2dfdb !important;
+    color: #455a64 !important;
+}
+.react-calendar__tile--active:enabled:hover{
+    background: #e0f2f1 !important;
+}

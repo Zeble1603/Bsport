@@ -2,11 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 60%;
     height: 180px;
     background: #F5F5F6;
-    margin: 10px;
-    padding-right: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .coverImg{
@@ -23,9 +22,8 @@
 }
 
 .cardContainer{
-    width: 100%;
+    width: 95%;
     display: flex;
-    margin-right: 20px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

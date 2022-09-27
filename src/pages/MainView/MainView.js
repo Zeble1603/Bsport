@@ -43,7 +43,7 @@ export default function MainView() {
     },[selectedDate])
 
     return (
-        <div>
+        <div className='mainViewContent'>
             <DatePicker pick = {handleDateSelection}/>
             <OfferList offers = {offers}/>
         </div>

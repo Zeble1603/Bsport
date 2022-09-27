@@ -9,7 +9,7 @@ export default function OfferList(props) {
 
     return (
     <div className="list">
-        <ul className="userlist">
+        <ul className="offerlist">
             {offers.map((offer) => {
             return (
                 <li key={offer.id}>
