@@ -19,6 +19,26 @@ async function fetchData(objectId, getFunction, setState) {
     setState(foundElement);
 }
 
+async function fetchObjects(objects, getFunction, setState) {
+    if(objects.length){
+        let allObjects = []
+        let foundObject;
+
+        for(const object of objects){
+            try {
+                foundObject = await getFunction(object);
+            } catch (error) {
+                console.error(error);
+            }
+            allObjects.push(foundObject)
+        }
+        setState(allObjects);
+    }
+    
+}
+
+
+
 //Call the different endpoints
 //GET all the offers
 async function getAllOffers(date) {
@@ -79,11 +99,25 @@ async function getEstablishment(establishmentId) {
     return establishment.data;
 }
 
+//GET members
+function getMember(bookingId) {
+    axios.get(`${API_URL}/booking/${bookingId}`)
+    .then(booking=>{
+        return axios.get(`${API_URL}/member/${booking.data.member}`)
+    })
+    .then(member=>{return member.data})
+    .catch(err=>{console.log(err)})
+}
+
+
+
 export {
     fetchData,
+    fetchObjects,
     getAllOffers,
     getCoach,
     getCompany,
     getEstablishment,
     getMetaActivity,
+    getMember
 };
