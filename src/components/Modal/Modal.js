@@ -21,7 +21,6 @@ export default function Modal({
                 <div className="modalHeader">
                     <h5 className="heading">{metaActivity.name} . {offer.duration_minute} mn<br/>  
                     {new Date(offer.date_start).toLocaleDateString()}  -  {time}</h5>
-                    <h5></h5>
                 </div>
                 <button className="closeBtn" onClick={() => setIsOpen(false)}>
                     <RiCloseLine style={{ marginBottom: "-3px" }} />
@@ -29,15 +28,28 @@ export default function Modal({
                 <div className="modalContent">
                     <h4>Description</h4>
                     <p>{metaActivity.description}</p>
-                    {members && }
+                    <div className="participantList">
+                        <h4>Participants</h4>
+                        {members.length > 0 ? 
+                            <ul>
+                                {members.map((member)=>{
+                                    return (
+                                        <li>{member.name}</li>
+                                    )
+                                })}
+                            </ul>
+                            :
+                            <p>Pas de participant pour le moment ... </p>
+                        }
+                    </div>
                 </div>
                 <div className="modalActions">
                     <div className="actionsContainer">
-                        <button className="deleteBtn" onClick={() => setIsOpen(false)}>
-                            Delete
+                        <button className="registerBtn" onClick={() => setIsOpen(false)}>
+                            S'inscrire
                         </button>
                         <button className="cancelBtn" onClick={() => setIsOpen(false)}>
-                            Cancel
+                            Fermer
                         </button>
                     </div>
                 </div>
