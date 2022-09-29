@@ -22,7 +22,7 @@ export default function MainView() {
     //States related to pagination 
     const [offersPerPage ] = useState(5)
     const [currentPage,setCurrentPage] = useState(1)
-    const [totalOffer,setTotalOffer] = useState(100)
+    const [totalOffer,setTotalOffer] = useState(1)
 
     //Function to fetch the data asynchronously
     async function fectchOffers() {

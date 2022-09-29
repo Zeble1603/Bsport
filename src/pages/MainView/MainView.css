@@ -3,11 +3,20 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-
 }
 
 .listSection{
     display: flex;
     flex-direction: column;
     width: 50%;
+}
+
+@media only screen and (max-width: 950px) {
+    .listSection{
+        width: 100%;
+    }
+    .mainViewContent{
+        align-items: center;
+        justify-content: center;
+    }
 }
