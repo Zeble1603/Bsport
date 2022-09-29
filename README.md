@@ -1,4 +1,4 @@
-# Welcome to Bsport technical challenge
+# Bsport technical challenge
 The idea of this challenge is to build a react application that can call API endpoints and consume
 the data they return
 
