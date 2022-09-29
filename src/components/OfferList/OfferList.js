@@ -1,6 +1,3 @@
-//React
-import { useState, useEffect } from 'react'
-
 //CSS
 import './OfferList.css'
 

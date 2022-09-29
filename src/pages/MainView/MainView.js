@@ -5,20 +5,20 @@ import './MainView.css'
 
 //Services 
 import { dateLimitator } from '../../services/date'
-import { fetchData,getAllOffers } from '../../services/requests'
+import { getAllOffers} from '../../services/requests'
 
 //Components
 import OfferList from "../../components/OfferList/OfferList"
 import DatePicker from '../../components/DatePicker/DatePicker'
 
 export default function MainView() {
+
     //States
     const [offers,setOffers] = useState([])
     const [selectedDate, setSelectedDate] = useState(new Date())
     //the dates that we will use as placeholder to filter the offers
     const [dateLimit,setDateLimit] = useState(dateLimitator())
 
-    //Usefull functions 
     //Function to fetch the data asynchronously
     async function fectchOffers() {
         let allOffers

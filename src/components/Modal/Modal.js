@@ -46,7 +46,7 @@ export default function Modal({
                                 <ul>
                                     {members.map((member)=>{
                                         return (
-                                            <li>{member.name}</li>
+                                            <li key={member.id}>{member.name}</li>
                                         )
                                     })}
                                 </ul>

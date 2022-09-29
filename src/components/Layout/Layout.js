@@ -7,6 +7,7 @@ export default function Layout ({children}) {
     return (
         <div>
             <div className="layout">
+
                 {children}
             </div>
         </div>

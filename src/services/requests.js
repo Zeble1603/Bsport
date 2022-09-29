@@ -19,25 +19,23 @@ async function fetchData(objectId, getFunction, setState) {
     setState(foundElement);
 }
 
-async function fetchObjects(objects, getFunction, setState) {
-    if(objects.length){
-        let allObjects = []
-        let foundObject;
+async function fetchObjects(datas, getFunction, setState) {
+    if(datas.length){
+        let allDatas = []
+        let foundData;
 
-        for(const object of objects){
+        for(const data of datas){
             try {
-                foundObject = await getFunction(object);
+                foundData = await getFunction(data);
             } catch (error) {
                 console.error(error);
             }
-            allObjects.push(foundObject)
+            allDatas.push(foundData)
         }
-        setState(allObjects);
+        setState(allDatas);
     }
     
 }
-
-
 
 //Call the different endpoints
 //GET all the offers
@@ -105,7 +103,7 @@ function getMember(bookingId) {
     .then(booking=>{
         return axios.get(`${API_URL}/member/${booking.data.member}`)
     })
-    .then(member=>{return member.data})
+    .then(member=> member.data)
     .catch(err=>{console.log(err)})
 }
 
