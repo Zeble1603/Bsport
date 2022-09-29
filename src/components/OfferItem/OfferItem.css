@@ -2,35 +2,40 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 180px;
+    height: auto;
     background: #F5F5F6;
     margin-bottom: 10px;
     margin-right: 10px;
+    width: 95%;
+    padding: 1rem;
 }
 
 .coverImg{
-    width: 170px;
-    height: 170px;
-    margin-left: 5px;
+    width: 25%;
+    height: auto;
+    max-height: 170px;
     margin-right: 5px;
 }
 
-.cardText{
+.cardContainer{
     display: flex;
     flex-direction: column;
     width: 70%;
+
 }
 
-.cardContainer{
+.cardHeader{
     width: 95%;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
 }
 
 .cardBody{
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 .coachItem{
@@ -85,4 +90,36 @@
     box-shadow: 0 10px 20px -10px #82ada9;
     transform: translateY(-5px);
     background: #e0f2f1;
+}
+
+.offerName{
+    text-align: center;
+}
+
+@media only screen and (max-width: 950px) {
+    .coverImg {
+        display: none;
+    }
+    .card{
+        justify-content: center;
+    }
+    .cardHeader{
+        justify-content: space-evenly;
+    }
+    .cardBody{
+        justify-content: space-evenly;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .cardHeader{
+        justify-content: space-evenly;
+    }
+
+    .cardBody{
+        justify-content: space-evenly;
+    }
+    
+
+
 }

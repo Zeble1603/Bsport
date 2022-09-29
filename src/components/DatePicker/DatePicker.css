@@ -60,3 +60,9 @@ background: #ede7f6 ;
 .calendar .react-calendar__tile--active:enabled:hover{
     background: #e0f2f1 ;
 }
+
+@media only screen and (max-width: 950px) {
+    .datePicker{
+        width: 100%;
+    }
+}

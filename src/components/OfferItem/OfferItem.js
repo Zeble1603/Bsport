@@ -61,8 +61,8 @@ export default function OfferItem(props) {
             src={metaActivity.cover_main}
             alt={metaActivity.alt_cover_main}
         />
-        <div className="cardText">
-            <div className="cardContainer">
+        <div className="cardContainer">
+            <div className="cardHeader">
                 <p className="time">{offerTime}</p>
                 <h3 className="offerName">
                     {metaActivity.name} . {offer.duration_minute} mn
