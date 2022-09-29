@@ -25,7 +25,7 @@
     background-color: #f0f0f0;
 }
 
-.calendar.react-calendar__navigation{
+.calendar .react-calendar__navigation{
     height:auto ;
     background-color: #f0f0f0 ;
 }
@@ -53,8 +53,8 @@ background: #ede7f6 ;
     background: #a9d4ff;
 }
 
-.calendar .react-calendar__tile--active {
-    background: #b2dfdb ;
+.datePicker .calendar .react-calendar__tile--active {
+    background-color: #b2dfdb;
     color: #455a64 ;
 }
 .calendar .react-calendar__tile--active:enabled:hover{

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 //Components
 import Modal from "../Modal/Modal";
+import MyLoader from "../Loader/Loader";  
 
 //Request functions
 import {
@@ -36,11 +37,15 @@ export default function OfferItem(props) {
     const [offerTime, setOfferTime] = useState([]);
     const [members,setMembers] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [isSubscribe, setIsSubscribe] = useState(false);
+    const [isLoader,setIsLoader] = useState(true)
 
-    //Fetch the data when the component is mounted
-    /*useEffect(()=>{
-            setOfferData(offer)
-        },[])*/
+    //Loader
+    useEffect(()=>{
+        setTimeout(()=>{
+            setIsLoader(false)
+        },2000)
+    },[])
 
     useEffect(() => {
         //Fetch the coach data
@@ -54,7 +59,9 @@ export default function OfferItem(props) {
         fetchObjects(offer.bookings,getMember,setMembers)
     }, []);
 
-    return (
+    return isLoader?
+    (<div className="card"><MyLoader/></div>):
+    (
         <div className="card">
         <img
             className="coverImg"
@@ -87,6 +94,12 @@ export default function OfferItem(props) {
                 >
                     + INFO
                 </button>
+                <button 
+                    className="card_button button_register"
+                    onClick={() => {setIsOpen(true)
+                        setIsSubscribe(true)}}>
+                    S'INSCRIRE
+                </button>
                 {isOpen && (
                     <Modal
                         setIsOpen={setIsOpen}
@@ -96,9 +109,10 @@ export default function OfferItem(props) {
                         coach={coach}
                         members={members}
                         time={offerTime}
+                        subscribe = {isSubscribe}
+                        setSubscribe = {setIsSubscribe}
                     />
                 )}
-                <button className="card_button button_register">S'INSCRIRE</button>
             </div>
         </div>
         </div>
