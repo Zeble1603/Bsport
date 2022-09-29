@@ -1,3 +1,13 @@
+# Welcome to Bsport technical challenge
+The idea of this challenge is to build a react application that can call API endpoints and consume
+the data they return
+
+The data is then organized as a list of offers. 
+The calendar behaves like an input to filter the data. 
+
+I tried my best to make this application responsive ... 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
