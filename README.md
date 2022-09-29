@@ -7,8 +7,10 @@ The calendar behaves like an input to filter the data.
 
 I tried my best to make this application responsive ... 
 
+Once you have clone this repository, cd into the project directory.
+Once you're in there, run:
 
-# Getting Started with Create React App
+### `npm install`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
