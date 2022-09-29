@@ -1,0 +1,20 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.pagination p {
+color: black;
+float: left;
+padding: 8px 16px;
+text-decoration: none;
+cursor: pointer;
+}
+
+.pagination p.active {
+background-color: #b2dfdb;
+color: #455a64;
+}
+
+.pagination p:hover:not(.active) {background-color: #b2dfdb;}

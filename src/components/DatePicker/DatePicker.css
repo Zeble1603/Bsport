@@ -3,16 +3,18 @@
 .datePicker {
     width: 560px;
     padding-top: 15px;
+    height: 100vh;
 }
 
 .calendar{
     border: 0px;
     width: 100%;
-    line-height: 6em;
+    line-height: 3em;
     font-family: 'Roboto', sans-serif;
     height: auto;
     display: flex;
     flex-direction: column;
+    
 }
 
 .calendar button{

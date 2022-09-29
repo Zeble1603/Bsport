@@ -39,11 +39,11 @@ async function fetchObjects(datas, getFunction, setState) {
 
 //Call the different endpoints
 //GET all the offers
-async function getAllOffers(date) {
+async function getAllOffers(date,page) {
     let offers;
     try {
-        offers = await axios.get(`${API_URL}/offer`, {
-        params: { company: 6, min_date: date, max_date: date },
+        offers = await axios.get(`${API_URL}/offer/`, {
+        params: { company: 6, min_date: date, max_date: date,page_size:5, page },
         });
     } catch (error) {
         console.error(error);
@@ -55,7 +55,7 @@ async function getAllOffers(date) {
 async function getMetaActivity(metaId) {
     let metaActivity;
     try {
-        metaActivity = await axios.get(`${API_URL}/meta-activity/${metaId}`);
+        metaActivity = await axios.get(`${API_URL}/meta-activity/${metaId}/`);
     } catch (error) {
         console.error(error);
     }
@@ -66,7 +66,7 @@ async function getMetaActivity(metaId) {
 async function getCompany(companyId) {
     let company;
     try {
-        company = await axios.get(`${API_URL}/company/${companyId}`);
+        company = await axios.get(`${API_URL}/company/${companyId}/`);
     } catch (error) {
         console.error(error);
     }
@@ -77,7 +77,7 @@ async function getCompany(companyId) {
 async function getCoach(coachId) {
     let coach;
     try {
-        coach = await axios.get(`${API_URL}/coach/${coachId}`);
+        coach = await axios.get(`${API_URL}/coach/${coachId}/`);
     }catch (error) {
         console.error(error);
     }
@@ -89,7 +89,7 @@ async function getEstablishment(establishmentId) {
     let establishment;
     try {
         establishment = await axios.get(
-        `${API_URL}/establishment/${establishmentId}`
+        `${API_URL}/establishment/${establishmentId}/`
         );
     } catch (error) {
         console.error(error);
@@ -99,9 +99,9 @@ async function getEstablishment(establishmentId) {
 
 //GET members
 function getMember(bookingId) {
-    axios.get(`${API_URL}/booking/${bookingId}`)
+    axios.get(`${API_URL}/booking/${bookingId}/`)
     .then(booking=>{
-        return axios.get(`${API_URL}/member/${booking.data.member}`)
+        return axios.get(`${API_URL}/member/${booking.data.member}/`)
     })
     .then(member=> member.data)
     .catch(err=>{console.log(err)})
