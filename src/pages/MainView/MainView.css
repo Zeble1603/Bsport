@@ -11,9 +11,11 @@
     width: 50%;
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1120px) {
     .listSection{
         width: 100%;
+        align-items: center;
+        justify-content: center;
     }
     .mainViewContent{
         align-items: center;

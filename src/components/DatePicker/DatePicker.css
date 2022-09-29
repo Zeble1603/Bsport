@@ -64,13 +64,20 @@ background: #ede7f6 ;
 @media only screen and (max-width: 950px) {
     .datePicker{
         width: 50%;
-
     }
 }
 
-@media only screen and (min-width: 950px) {
-    .calendar{
-        width: 45%;
+@media only screen and (max-width: 680px) {
+    .datePicker{
+        width: 90%;
+    }
+}
+
+
+@media only screen and (min-width : 1120px) {
+    .calendar {
         position: fixed;
+        width: 45%;
+        max-width: 560px;
     }
 }
