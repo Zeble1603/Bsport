@@ -14,13 +14,6 @@ export default function Pagination(props) {
         pageNumber.push(i)
     }
 
-    const toggleClass = (number) => {
-        
-    };
-    
-
-    
-
     return (
         <div className="pagination">
             {pageNumber.map(number=>(
